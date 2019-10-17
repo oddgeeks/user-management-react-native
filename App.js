@@ -160,10 +160,11 @@ const styles = StyleSheet.create({
 		paddingTop: (Platform.OS === 'ios') ? 20 : 0,
 	},
 	itemRow: {
+		direction: 'rtl',
 		flex: 1,
-		flexDirection: 'row',
-		flexWrap: 'wrap',
-		alignItems: 'flex-start'
+		flexDirection: 'row-reverse',
+		// flexWrap: 'wrap',
+		alignItems: 'flex-end'
 	},
 	imageViewContainer: {
 		width: 44,
@@ -178,11 +179,13 @@ const styles = StyleSheet.create({
 	},
 	Itemtitle: {
 		width: '100%',
+		textAlign: 'right',
 	},
 	Itemsubtitle: {
 		width: '100%',
 		color: '#ababab',
 		// backgroundColor: 'green',
+		textAlign: 'right',
 	},
 })
 
