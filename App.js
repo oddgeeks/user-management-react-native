@@ -31,6 +31,16 @@ class ActivityHome extends React.Component<Props> {
 	}
 }
 
+class ActivityProfile extends React.Component<Props> {
+	render() {
+		return (
+		<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+			<Text>Hi Profile!</Text>
+		</View>
+		);
+	}
+}
+
 class ActivityList extends React.Component<Props> {
 	render() {
 		return (
@@ -60,7 +70,8 @@ class ActivityRow extends React.Component<Props> {
 	constructor(props) {
 		super(props);
 		this.state = {
-			isLoading: true
+			isLoading: true,
+			navigate: this.props.navigation,
 		}
 	}
 	componentDidMount() {
@@ -92,12 +103,17 @@ class ActivityRow extends React.Component<Props> {
 	renderItem(item) {
 		item.image='https://avatars2.githubusercontent.com/u/46446002?s=460&v=4';
 		return (
-		<TouchableHighlight underlayColor='#dddddd' onPress={this.GetFlatListItem.bind(this, item.name)}>
+		<TouchableHighlight underlayColor='#dddddd' onPress={() => this.state.navigate('Profile', {name: item.name})}>
 			<View style={styles.itemRow}>
-				<Image source={{uri: item.image}} style={styles.imageViewContainer} />
-				<Text style={styles.textViewContainer}>
-					{item.name}
-				</Text>
+				<Image source={{uri: item.image}} style={styles.imageViewContainer}/>
+				<View style={styles.textViewContainer}>
+					<Text style={styles.Itemtitle} onPress={this.GetFlatListItem.bind(this, item.name)}>
+						{item.name}
+					</Text>
+					<Text style={styles.Itemsubtitle} onPress={this.GetFlatListItem.bind(this, item.name)}>
+						{item.company.catchPhrase}
+					</Text>
+				</View>
 			</View>
 		</TouchableHighlight>
 		);
@@ -156,9 +172,17 @@ const styles = StyleSheet.create({
 		borderRadius: 22,
 	},
 	textViewContainer: {
-		width:'50%',
-		paddingTop: 25,
+		width:'auto',
+		paddingTop: 10,
 		// padding:20
+	},
+	Itemtitle: {
+		width: '100%',
+	},
+	Itemsubtitle: {
+		width: '100%',
+		color: '#ababab',
+		// backgroundColor: 'green',
 	},
 })
 
@@ -171,6 +195,9 @@ const AppNavigator = createStackNavigator({
 	},
 	Row: {
 		screen: ActivityRow,
+	},
+	Profile: {
+		screen: ActivityProfile,
 	},
 }, {
 	initialRouteName: "Row",
