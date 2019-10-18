@@ -1,5 +1,7 @@
 # Example React Native User List (List View)
 
+A tiny project and sample to display a list of some users with avatar to fetch data from internet using Json structure.
+
 # Profile List View
 
 ![React Native List View - android - screenshot](screenshot1.jpg)
