@@ -1,6 +1,6 @@
-# React Native List View
+# Example React Native User List (List View)
 
-# Profile List
+# Profile List View
 
 ![React Native List View - android - screenshot](screenshot1.jpg)
 
