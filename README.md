@@ -4,6 +4,12 @@ A tiny project and sample to display a list of some users with avatar to fetch d
 
 # Profile List View
 
+## JSON API
+
+We are using a sample and public webserver just for test purpose.
+
+API: https://jsonplaceholder.typicode.com/users
+
 ![React Native List View - android - screenshot](screenshot1.jpg)
 
 ![React Native List View - android - screenshot](screenshot2.jpg)
